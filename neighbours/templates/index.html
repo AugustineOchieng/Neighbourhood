@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{{block.super}}
+{% block content %}
+
+{% for hood in neighbourhoods %}
+<p> {{hood.neighbourhood_name}} </p>
+<p> {{hood.neighbourhood_location}} </p>
+<p>{{hood.occupants_count}}</p>
+{% endfor %}
+{% endblock %}
