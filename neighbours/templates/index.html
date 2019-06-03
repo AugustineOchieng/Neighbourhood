@@ -2,9 +2,54 @@
 {{block.super}}
 {% block content %}
 
-{% for hood in neighbourhoods %}
-<p> {{hood.neighbourhood_name}} </p>
-<p> {{hood.neighbourhood_location}} </p>
-<p>{{hood.occupants_count}}</p>
+
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,900" rel="stylesheet">
+
+<div class="container" id="hood">
+  <div class="row">
+    {% for hood in neighbourhoods %}
+    <div class="col-md-4">
+      <div class="card card-1">
+        <h3>
+          {{hood.neighbourhood_name}}
+        </h3>
+        <p> Location: {{hood.neighbourhood_location}} </p>
+        <p>Population: {{hood.occupants_count}}</p>
+      </div>
+    </div>
+   
+
 {% endfor %}
+{% for post in posts %}
+<div class="col-md-8" >
+<!-- Card -->
+<div class="card">
+
+  <!-- Card image -->
+  <div class="view overlay">
+    <img class="card-img-top" src="{{post.image.url}}"
+      alt="Card image cap">
+    <a href="#!">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title">{{post.image_name}}</h4>
+    <!-- Text -->
+    <p class="card-text">{{post.image_caption}}
+    </p>
+   
+    
+  </div>
+
+</div>
+<!-- Card -->
+</div>
+{% endfor %}
+</div>
+
 {% endblock %}
