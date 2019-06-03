@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{% block content %}
+<div class="jumbotron bg-cover text-white"
+  style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(https://placeimg.com/1000/480/nature)">
+  <div class="container">
+    <h1 class="display-4">Your profile</h1>
+
+    <hr class="my-4">
+
+    <a class="point btn-lg text-white" href="/edit_profile" role="button">Edit Profile</a>
+  </div>
+</div>
+{{block.super}}
+
+
+{% for user in users %}
+<div class="row" >
+  <div class="col-md-1" > 
+    <div class="avatar mx-auto white">
+      <img src="{{user.profile_picture.url}}" class="rounded-circle" alt="woman avatar" width="250px" height="250px">
+    </div>
+  </div>
+  <div class="col-md-2" ></div>
+  <div class="col-md-3" >
+<h2> {{user.name}}</h2>
+<h2>{{user.bio}}</h2>
+<h2>{{user.email_address}}</h2>
+</div>
+<div class="col-md-4" >
+<h2>{{user.contact}}</h2>
+<h2>{{user.neighbourhood}}</h2>
+</div>
+</div>
+{% endfor %}
+{% endblock %}
