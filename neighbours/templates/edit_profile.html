@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+
+{% block content %}
+
+<div class="jumbotron bg-cover " style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),
+  url(http://s1.1zoom.me/b5050/869/346634-admin_2880x1800.jpg)">
+  <div class="container">
+    <h1 class="display-4">Awwwards</h1>
+    
+
+
+    <hr class="my-4">
+
+    <a class="point btn-lg text-dark" href="/search" role="button">Search Business</a>
+  </div>
+</div>
+{{block.super}}
+<div class="row">
+  <h2>Add a Comment</h2>
+
+  <form action="{%url 'edit_profile'%}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+
+    {% bootstrap_form form%}
+    <input type="submit" class="btn btn-info btn-lg" value="Post">
+  </form>
+
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %} {% endblock %}
+</div>
+</div>
+</div>
+
+{% endblock %}
