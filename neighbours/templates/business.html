@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{{block.super}}
+{% block content %}
+
+
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,900" rel="stylesheet">
+
+<div class="container" id="hood">
+  <div class="row">
+    {% for biz in businesses %}
+    <div class="col-md-4">
+      <div class="card card-1">
+        <h3>
+          {{biz.business_name}}
+        </h3>
+        <p> Contact: {{biz.business_email_address}} </p>
+        <p>Description: {{biz.description}}</p>
+      </div>
+    </div>
+
+
+    {% endfor %}
+    {% endblock %}
